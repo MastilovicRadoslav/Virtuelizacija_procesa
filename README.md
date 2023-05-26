@@ -4,7 +4,7 @@
 Klijent-Server aplikacija, komunikacija se odvija putem WCF-a(Windows Communication Foundation). <br/>
 Na klijentu je konzolna aplikacija, gde je potrebno uneti putanju do foldera sa CSV fajlovima koji se šalje na server preko MemoryStream-a.<br/>
 Server se koristi za obradu podataka (podaci su vezani za potrošnju električne energije).<br/>
-Server vrši sledeće operacije kako bi obradio podatke :<br/>
+Server vrši sledeće operacije kako bi obradio podatke :
     * Parsira fajlove iz foldera koji su primljeni od klijenta preko MemoryStream-a
     * Parsiranje fajlova podrazumeva određivanje :
         * Id
