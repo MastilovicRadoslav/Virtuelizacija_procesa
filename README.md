@@ -17,14 +17,13 @@ Server vrši sledeće operacije kako bi obradio podatke :
     * Apsolutno procentualno odstupanje
     * Kvadratno odstupanje
 * Posle određenog odstupanja ažurira se baza podataka
-* Klijent dobija povratnu informaciju o tome da li je obrada uspešna ili nije<br/>
+* Klijent dobija povratnu informaciju o tome da li je obrada uspešna ili nije i ispisuje obrađene podatke.<br/>
 Ažuriranje baze podataka (XML ili In-Memory) vrši se preko Event-a i Delegate-a.<br/>
-Na serveru se ispisuje In-Memory baza podataka ako je korišćena.<br/>
-Ili u folderu 'LoadsByDate' kreiraju XML fajlovi za svaki Load objekat ako se koristi XML baza.
+Na serveru u folderu 'LoadsByDate' kreiraju se XML fajlovi za svaki Load objekat ako se koristi XML baza.
 
 
 ## Aplikacija sadrži :
-    * Client - konzolna aplikacija, unosi se putanja do foldera sa CSV fajlovima
+    * Client - konzolna aplikacija, unosi se putanja do foldera sa CSV fajlovima i ispisuju se rezultati obrade podataka.
     * Common - class library za klase i interfejs
     * Data Base - za XML i In-Memory baze podataka
     * Server - konzolna aplikacija, ispisuje In-Memory bazu
