@@ -52,8 +52,7 @@ namespace Server
 			ValueCheck(Globals.Loads); // Funkcija koja izbacuje nevalidne vrednosti
 			CalculateDeviations(Globals.Loads); // Funkcija koja računa absolutno i kvadratno odstupanje
 			CreateXmlSubset(); // Funkcija koja deli glavnu bazu na pod baze sa svaki Load objekat po fajlu
-			inMemory.RegisterEventHandler(); // Brisanje Eventa za In-Memory bazu
-			db.RemoveEventHandlers(); // Brisanje Eventa za XML bazu
+			compressedFolders.Dispose();
 			DisposeMemoryStream(compressedFolders); // Dispose pattern
 			return true;
 		}
@@ -509,6 +508,8 @@ namespace Server
 		private void DisposeMemoryStream(MemoryStream memoryStream)
 		{
 			memoryStream.Dispose();
+			inMemory.RegisterEventHandler(); // Brisanje Eventa za In-Memory bazu
+			db.RemoveEventHandlers(); // Brisanje Eventa za XML bazu
 		}
 
 		private bool disposed = false;
