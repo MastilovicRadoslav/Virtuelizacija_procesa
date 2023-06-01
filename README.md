@@ -33,7 +33,7 @@ Na serveru u folderu 'LoadsByDate' kreiraju se XML fajlovi za svaki Load objekat
 
 
 ## Stanje memorije tokom obrade podataka i nakon ispisa :
-![MemorySnapShot](https://github.com/MastilovicRadoslav/Virtuelizacija_procesa/assets/116062572/31617239-0c95-471e-a7a4-5d2113b74628)
+![MeorySnapShot](https://github.com/MastilovicRadoslav/Virtuelizacija_procesa/assets/122049689/3fd8a03e-d449-4907-9fec-1a77a9133b33)
 
 Slika prikazuje stanje memorije tokom obrade podataka i nakon ispisa.<br/>
 Dolazi do minimalnog oslobađanje memorije a to je zbog upotrebe Despose patterna.<br/>
