@@ -442,6 +442,7 @@ namespace Server
 			if (File.Exists("Load.xml"))
 			{
 				List<Load> loadsFromXML = db.DeSerializeObject<List<Load>>("Load.xml");
+				if (loadsFromXML.Count <= 527) { return; }
 				_ = new List<Load>();
 				int j = 17;
 
@@ -461,23 +462,45 @@ namespace Server
 		{
 			int counter = 1;
 			List<Audit> invalidFiles = new List<Audit>();
-			string[] dateTimeString = file.Split('_');
-			string dateTimeS = dateTimeString[2] + "-" + dateTimeString[3] + "-" + dateTimeString[4].Replace(".csv", "");
-			DateTime dateTime = DateTime.Parse(dateTimeS);
-			Audit audit = new Audit(counter, dateTime, "Greska! Nije prosla validacija!", MessageType.Error);
-			invalidFiles.Add(audit);
-			Globals.ErrorAudits.Add(audit);
-			if (databaseType == "XML")
+			if (file.Contains("\\"))
 			{
-				counter++;
-				db.TriggerEvent(Globals.ErrorAudits, "Audit.xml");
-			}
-			else if (databaseType == "InMemory")
-			{
-				counter++;
-				for (int i = 0; i < invalidFiles.Count; i++)
+				string[] dateTimeString = file.Split('_');
+				string dateTimeS = dateTimeString[2] + "-" + dateTimeString[3] + "-" + dateTimeString[4].Replace(".csv", "");
+				DateTime dateTime = DateTime.Parse(dateTimeS);
+				Audit audit = new Audit(counter, dateTime, "Greska! Nije prosla validacija!", MessageType.Error);
+				invalidFiles.Add(audit);
+				Globals.ErrorAudits.Add(audit);
+				if (databaseType == "XML")
 				{
-					inMemory.TriggerEvent(Globals.ErrorAudits[i]);
+					counter++;
+					db.TriggerEvent(Globals.ErrorAudits, "Audit.xml");
+				}
+				else if (databaseType == "InMemory")
+				{
+					counter++;
+					for (int i = 0; i < invalidFiles.Count; i++)
+					{
+						inMemory.TriggerEvent(Globals.ErrorAudits[i]);
+					}
+				}
+			}
+			else
+			{
+				Audit audit1 = new Audit(counter, DateTime.Now, "Greska! Nije prosla validacija!", MessageType.Error);
+				invalidFiles.Add(audit1);
+				Globals.ErrorAudits.Add(audit1);
+				if (databaseType == "XML")
+				{
+					counter++;
+					db.TriggerEvent(Globals.ErrorAudits, "Audit.xml");
+				}
+				else if (databaseType == "InMemory")
+				{
+					counter++;
+					for (int i = 0; i < invalidFiles.Count; i++)
+					{
+						inMemory.TriggerEvent(Globals.ErrorAudits[i]);
+					}
 				}
 			}
 		}
