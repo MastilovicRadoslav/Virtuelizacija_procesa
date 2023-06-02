@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<ArrayOfAudit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Audit>
+    <Id>1</Id>
+    <Timestamp>2023-01-17T00:00:00</Timestamp>
+    <Message>Greska! Nije prosla validacija!</Message>
+    <Type>Error</Type>
+  </Audit>
+  <Audit>
+    <Id>1</Id>
+    <Timestamp>2023-01-17T00:00:00</Timestamp>
+    <Message>Greska! Nije prosla validacija!</Message>
+    <Type>Error</Type>
+  </Audit>
+</ArrayOfAudit>
